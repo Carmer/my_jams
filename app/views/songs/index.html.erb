@@ -1,0 +1,16 @@
+<%= link_to "Create a new song!", new_song_path %>
+
+
+<h1>My Jams</h1>
+
+<h4> Page visited <%= session[:hit_counter] %> times.</h4>
+
+<h3>Your Songs are:</h3>
+<h5>click on song to go to song information</h5>
+<ol>
+  <% @songs.each do |song| %>
+
+  <li><%= link_to song.title, song_path(song) %>
+    by: <%= song.artist %></li>
+  <% end %>
+</ol>
