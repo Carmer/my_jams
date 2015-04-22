@@ -1,6 +1,7 @@
 <h1>Welcome <%= current_user.username %>!</h1>
 
 <h3>Your Jams!</h3>
+<h5><%= link_to "Add Jam", new_song_path(user_id: current_user.id) %></h5>
 
 <table>
     <% current_user.songs.each do |song| %>

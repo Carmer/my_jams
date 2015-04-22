@@ -14,7 +14,7 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     if @song.save
       flash[:notice] = "Song saved to your songs"
-      redirect_to @song
+      redirect_to current_user
     else
       flash[:save_error] = @song.errors.full_messages.join(", ")
       render :new
@@ -22,7 +22,7 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = Song.new
+    @song = Song.new(user_id: params[:user_id])
   end
 
   def edit
@@ -47,7 +47,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist)
+    params.require(:song).permit(:title, :artist, :user_id)
   end
 
 

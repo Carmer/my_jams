@@ -1,5 +1,6 @@
 <%= form_for(@song) do |f| %>
 <%= f.text_field :title, placeholder: "Title" %>
 <%= f.text_field :artist, placeholder: "Artist" %>
-<%= f.submit %>
+<%= f.hidden_field :user_id %>
+<%= f.submit "Add that Jam!" %>
 <% end %>
